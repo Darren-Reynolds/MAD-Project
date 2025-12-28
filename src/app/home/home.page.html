@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>GXXXXXXXX</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/favourites">
+        <ion-icon name="heart"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/settings">
+        <ion-icon name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item lines="none">
+    <ion-label position="stacked">Enter Ingredients</ion-label>
+    <ion-input [(ngModel)]="searchQuery" placeholder="carrots,beef,potatoes"></ion-input>
+  </ion-item>
+  
+  <ion-button expand="block" (click)="search()">SEARCH</ion-button>
+
+  <ion-card *ngFor="let recipe of recipes">
+    <img [src]="recipe.image" />
+    <ion-card-header>
+      <ion-card-title>{{ recipe.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button size="small" [routerLink]="['/recipe-details', recipe.id]">DETAILS</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
