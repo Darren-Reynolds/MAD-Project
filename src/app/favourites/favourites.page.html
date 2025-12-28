@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Favourites Recipes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+    <ion-card *ngFor="let recipe of favouriteRecipes">
+      <img [src]="recipe.image" />
+      <ion-card-header>
+        <ion-card-title>{{ recipe.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button size="small" [routerLink]="['/recipe-details', recipe.id]">DETAILS</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
